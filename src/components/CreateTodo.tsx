@@ -28,7 +28,7 @@ const CreateTodo = () => {
         completed,
         category
     };
-    tasks.push(task)
+    (task)
   };
 
   return (
@@ -58,7 +58,7 @@ const CreateTodo = () => {
       />
       <div>
         <button>Cancel</button>
-        <button>Save</button>
+        <button onClick={addTask}>Save</button>
       </div>
     </div>
   );

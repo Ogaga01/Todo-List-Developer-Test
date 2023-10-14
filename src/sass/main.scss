@@ -36,7 +36,7 @@ html {
 body {
   box-sizing: border-box;
   font-family: poppins, sans-serif;
-  background-color: #fff;
+  background-color: $color-white;
 
   @include respond(tab-port) {
     padding: 0;
