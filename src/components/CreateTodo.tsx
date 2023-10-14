@@ -32,7 +32,7 @@ const CreateTodo = () => {
   };
 
   return (
-    <div>
+    <div className={styles["todo"]}>
       <h1 className={styles["header"]}>Create Task</h1>
       <div className={styles["category"]}>
         <label className={styles["category__label"]} htmlFor="category">
@@ -56,7 +56,7 @@ const CreateTodo = () => {
         </select>
       </div>
       <input
-        className={styles["name"]}
+        className={styles["input"]}
         type="string"
         name="todo"
         value={todo}
@@ -64,16 +64,16 @@ const CreateTodo = () => {
         placeholder="What task should be done"
       />
       <input
-        className={styles["description"]}
+        className={styles["input"]}
         type="text"
         name="description"
         value={description}
         onChange={handleDescription}
         placeholder="Description (optional) "
       />
-      <div>
-        <button className={styles["cancel-button"]}>Cancel</button>
-        <button className={styles["add-button"]} onClick={addTask}>
+      <div className={styles["buttons"]}>
+        <button className={styles["buttons__cancel"]}>Cancel</button>
+        <button className={styles["buttons__add"]} onClick={addTask}>
           Save
         </button>
       </div>
