@@ -1,23 +1,52 @@
 import { useState } from "react";
 
 const CreateTodo = () => {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState<string>("");
+  const [todo, setTodo] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const completed = false;
 
-  const handleCategory = (e) => {
+  const handleCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCategory(e.target.value);
     console.log(e.target.value);
+  };
+
+  const handleTodo = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTodo(e.target.value);
+  };
+
+  const handleDescription = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDescription(e.target.value);
   };
 
   return (
     <div>
       <h1>Create Task</h1>
-      <div className={styles.select}>
-        <label htmlFor="continent">Filter by Continents</label>
-        <select id="continents" name="continents" onChange={handleCategory}>
-          <option value="africa">Chores</option>
-          <option value="asia">Work</option>
-          <option value="europe">Gym</option>
+      <div>
+        <label htmlFor="category">Select Category</label>
+        <select id="category" name="category" onChange={handleCategory}>
+          <option value="chores">Chores</option>
+          <option value="work">Work</option>
+          <option value="gym">Gym</option>
         </select>
+      </div>
+      <input
+        type="string"
+        name="todo"
+        value={todo}
+        onChange={handleTodo}
+        placeholder="What task should be done"
+      />
+      <input
+        type="text"
+        name="description"
+        value={description}
+        onChange={handleDescription}
+        placeholder="Description (optional) "
+      />
+      <div>
+        <button>Cancel</button>
+        <button>Save</button>
       </div>
     </div>
   );

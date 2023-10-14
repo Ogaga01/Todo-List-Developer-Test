@@ -1,12 +1,7 @@
+import CreateTodo from "./components/CreateTodo";
 
 function App() {
-
-  return (
-    <div>
-      
-      
-    </div>
-  )
+  return <div><CreateTodo/></div>;
 }
 
-export default App
+export default App;
