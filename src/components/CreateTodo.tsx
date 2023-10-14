@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Task } from "../types";
+import styles from "../sass/createTodo.module.scss";
 
 const CreateTodo = () => {
   const [category, setCategory] = useState<string>("");
@@ -22,27 +23,40 @@ const CreateTodo = () => {
 
   const addTask = () => {
     const task: Task = {
-        id: 'a',
-        todo:
-        description,
-        completed,
-        category
+      id: "a",
+      todo: description,
+      completed,
+      category,
     };
-    (task)
+    task;
   };
 
   return (
     <div>
-      <h1>Create Task</h1>
-      <div>
-        <label htmlFor="category">Select Category</label>
-        <select id="category" name="category" onChange={handleCategory}>
-          <option value="chores">Chores</option>
-          <option value="work">Work</option>
-          <option value="gym">Gym</option>
+      <h1 className={styles["header"]}>Create Task</h1>
+      <div className={styles["category"]}>
+        <label className={styles["category__label"]} htmlFor="category">
+          Select Category
+        </label>
+        <select
+          className={styles["category__label--value"]}
+          id="category"
+          name="category"
+          onChange={handleCategory}
+        >
+          <option className={styles["category__option"]} value="chores">
+            Chores
+          </option>
+          <option className={styles["category__option"]} value="work">
+            Work
+          </option>
+          <option className={styles["category__option"]} value="gym">
+            Gym
+          </option>
         </select>
       </div>
       <input
+        className={styles["name"]}
         type="string"
         name="todo"
         value={todo}
@@ -50,6 +64,7 @@ const CreateTodo = () => {
         placeholder="What task should be done"
       />
       <input
+        className={styles["description"]}
         type="text"
         name="description"
         value={description}
@@ -57,8 +72,10 @@ const CreateTodo = () => {
         placeholder="Description (optional) "
       />
       <div>
-        <button>Cancel</button>
-        <button onClick={addTask}>Save</button>
+        <button className={styles["cancel-button"]}>Cancel</button>
+        <button className={styles["add-button"]} onClick={addTask}>
+          Save
+        </button>
       </div>
     </div>
   );
