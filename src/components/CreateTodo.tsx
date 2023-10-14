@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Task } from "../types";
 import styles from "../sass/createTodo.module.scss";
+import { setLocalStorage } from "../localStorage";
 
 const CreateTodo = () => {
   const [category, setCategory] = useState<string>("");
   const [todo, setTodo] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const completed = false;
+
 
   const handleCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCategory(e.target.value);
@@ -28,7 +30,8 @@ const CreateTodo = () => {
       completed,
       category,
     };
-    task;
+    (task);
+    setLocalStorage()
   };
 
   return (
