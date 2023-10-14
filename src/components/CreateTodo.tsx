@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Task } from "../types";
 
 const CreateTodo = () => {
   const [category, setCategory] = useState<string>("");
@@ -17,6 +18,17 @@ const CreateTodo = () => {
 
   const handleDescription = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescription(e.target.value);
+  };
+
+  const addTask = () => {
+    const task: Task = {
+        id: 'a',
+        todo:
+        description,
+        completed,
+        category
+    };
+    tasks.push(task)
   };
 
   return (
