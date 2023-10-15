@@ -9,7 +9,6 @@ const CreateTodo = () => {
   const [description, setDescription] = useState<string>("");
   const completed = false;
 
-
   const handleCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCategory(e.target.value);
     console.log(e.target.value);
@@ -23,7 +22,7 @@ const CreateTodo = () => {
     setDescription(e.target.value);
   };
 
-  const date = Date.now()
+  const date = Date.now();
 
   const addTask = () => {
     const task: Task = {
@@ -32,7 +31,7 @@ const CreateTodo = () => {
       completed,
       category,
     };
-    setLocalStorage(task)
+    setLocalStorage(task);
   };
 
   return (
@@ -63,6 +62,7 @@ const CreateTodo = () => {
         className={styles["input"]}
         type="string"
         name="todo"
+        required
         value={todo}
         onChange={handleTodo}
         placeholder="What task should be done"
