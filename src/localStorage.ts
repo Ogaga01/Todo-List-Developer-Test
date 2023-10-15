@@ -23,3 +23,23 @@ export const filterCategory = (value: string) => {
     return tasks.category === value;
   });
 };
+
+export const filterByCountry = (value: string) => {
+  if (tasks.length === 0) return;
+
+  if (value === "all") {
+    return tasks;
+  }
+
+  if (value === "new") {
+    tasks = tasks.filter((task: Task) => {
+      return task.completed === false;
+    });
+  }
+  
+  if (value === "completed") {
+    tasks = tasks.filter((task: Task) => {
+      return task.completed === true;
+    });
+  }
+};
