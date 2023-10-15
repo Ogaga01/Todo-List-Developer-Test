@@ -23,15 +23,16 @@ const CreateTodo = () => {
     setDescription(e.target.value);
   };
 
+  const date = Date.now()
+
   const addTask = () => {
     const task: Task = {
-      id: "a",
+      id: date.toString(),
       todo: description,
       completed,
       category,
     };
-    (task);
-    setLocalStorage()
+    setLocalStorage(task)
   };
 
   return (

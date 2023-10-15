@@ -1,9 +1,9 @@
 import { Task } from "./types";
 
-export const tasks: Task[] = [];
+export const setLocalStorage = (task: Task) => {
+  const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
 
-export const setLocalStorage = () => {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  existingTasks.push(task);
+
+  localStorage.setItem("tasks", JSON.stringify(existingTasks));
 };
-
-
