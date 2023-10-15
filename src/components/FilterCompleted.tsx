@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { filterByCompleted } from "../localStorage";
 
 const FilterCompleted = () => {
@@ -8,20 +9,19 @@ const FilterCompleted = () => {
         filterByCompleted(filterValue);
       };
       return (
-          <div className={styles["category"]}>
+          <div >
             <select
-              className={styles["category__label--value"]}
               id="category"
               name="category"
               onChange={handleFilterCompleted}
             >
-              <option className={styles["category__option"]} value="all">
+              <option  value="all">
                 All
               </option>
-              <option className={styles["category__option"]} value="new">
+              <option  value="new">
                 New
               </option>
-              <option className={styles["category__option"]} value="completed">
+              <option  value="completed">
                 Completed
               </option>
             </select>

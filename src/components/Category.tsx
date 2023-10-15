@@ -9,23 +9,23 @@ const Category = () => {
     filterCategory(filterValue);
   };
   return (
-      <div className={styles["category"]}>
-        <label className={styles["category__label"]} htmlFor="category">
+      <div>
+        <label  htmlFor="category">
           Select Category
         </label>
         <select
-          className={styles["category__label--value"]}
+          
           id="category"
           name="category"
           onChange={handleFilter}
         >
-          <option className={styles["category__option"]} value="chores">
+          <option  value="chores">
             Chores
           </option>
-          <option className={styles["category__option"]} value="work">
+          <option  value="work">
             Work
           </option>
-          <option className={styles["category__option"]} value="gym">
+          <option  value="gym">
             Gym
           </option>
         </select>
