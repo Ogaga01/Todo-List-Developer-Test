@@ -1,3 +1,5 @@
+import { filterByCompleted } from "../localStorage";
+
 const FilterCompleted = () => {
     const [filterValue, setFilterValue] = useState<string>("");
 

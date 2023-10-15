@@ -24,7 +24,7 @@ export const filterCategory = (value: string) => {
   });
 };
 
-export const filterByCountry = (value: string) => {
+export const filterByCompleted = (value: string) => {
   if (tasks.length === 0) return;
 
   if (value === "all") {
@@ -36,7 +36,7 @@ export const filterByCountry = (value: string) => {
       return task.completed === false;
     });
   }
-  
+
   if (value === "completed") {
     tasks = tasks.filter((task: Task) => {
       return task.completed === true;
