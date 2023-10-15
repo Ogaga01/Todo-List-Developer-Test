@@ -1,18 +1,16 @@
-import { useState } from "react";
 
-const Searchbar = () => {
-  const [searchValue, setSearchValue] = useState<string>("");
+type Prop = {
+  handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-  const handleSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
+const Searchbar = ({ handleSearchChange }: Prop) => {
+
   return (
     <div>
       <input
         type="string"
         name="search"
-        value={searchValue}
-        onChange={handleSearchValue}
+        onChange={handleSearchChange}
       />
     </div>
   );
