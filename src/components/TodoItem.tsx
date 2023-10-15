@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { FaRegCopy, FaRegTrashAlt } from "react-icons/fa";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
 import { Task } from "../types";
 
 interface Props {
@@ -19,10 +18,13 @@ const TodoItem: FC<Props> = ({ props }) => {
 
   const handleCheckbox = () => {
     let existingTodos: Task[] = JSON.parse(
-      localStorage.getItem("todos") || "[]"
+      localStorage.getItem("tasks") || "[]"
     );
 
+    console.log(id, existingTodos);
+
     const foundTodo = existingTodos.find((todo) => todo.id === id) as Task;
+    console.log(foundTodo);
     existingTodos = existingTodos.filter((todo) => todo.id !== id);
 
     existingTodos.push({
@@ -30,16 +32,17 @@ const TodoItem: FC<Props> = ({ props }) => {
       completed: !isChecked,
     });
 
-    localStorage.setItem("todos", JSON.stringify(existingTodos));
+    localStorage.setItem("tasks", JSON.stringify(existingTodos));
     setIsChecked((prev) => !prev);
+    console.log("checked");
   };
 
   const deleteTodo = () => {
     let existingTodos: Task[] = JSON.parse(
-      localStorage.getItem("todos") || "[]"
+      localStorage.getItem("tasks") || "[]"
     );
     existingTodos = existingTodos.filter((todo) => todo.id !== id);
-    localStorage.setItem("todos", JSON.stringify(existingTodos));
+    localStorage.setItem("tasks", JSON.stringify(existingTodos));
   };
 
   return (
