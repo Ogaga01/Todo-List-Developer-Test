@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { filterByCompleted } from "../localStorage";
 
 const FilterCompleted = () => {
     const [filterValue, setFilterValue] = useState<string>("");
 
     const handleFilterCompleted = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setFilterValue(e.target.value);
-        filterByCompleted(filterValue);
       };
       return (
           <div >

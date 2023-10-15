@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { filterCategory } from "../localStorage";
 
 const Category = () => {
   const [filterValue, setFilterValue] = useState<string>("");
 
   const handleFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterValue(e.target.value);
-    filterCategory(filterValue);
   };
   return (
       <div>
