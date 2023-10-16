@@ -11,6 +11,7 @@
   background-color: #dfdcd2;
 
   @include respond(mob-nav) {
+    margin: 0 auto;
     width: 80%;
   }
 
@@ -38,7 +39,10 @@
       text-align: center;
       text-transform: uppercase;
 
-      
+      @include respond(mini-phone) {
+        font-size: 1.3rem;
+        width: 30%;
+      }
     }
   }
 }

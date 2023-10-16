@@ -11,6 +11,10 @@
   box-shadow: 0 1rem 2rem rgba($color-primary, 0.2);
   height: 7rem;
 
+  @include respond(mini-phone) {
+    padding: 0 2rem;
+  }
+
   &__check {
     height: auto;
     width: 5%;
@@ -24,20 +28,40 @@
     width: 75%;
     color: $color-secondary;
     text-transform: uppercase;
+    padding-left: 4rem;
+
+    @include respond(mini-phone) {
+      text-align: center;
+      
+    }
   }
 
   &__todo {
     font-size: 1.7rem;
     width: 75%;
     color: $color-secondary;
+    padding-left: 4rem;
+
+    @include respond(mini-phone) {
+      text-align: center;
+      
+    }
 
     &--para1 {
       text-transform: uppercase;
       font-size: 1.8rem;
+      padding-left: 4rem;
+      @include respond(mini-phone) {
+        text-align: center;
+      }
     }
 
     &--para2 {
       font-size: 1.5rem;
+      padding-left: 4rem;
+      @include respond(mini-phone) {
+        text-align: center;
+      }
     }
   }
 

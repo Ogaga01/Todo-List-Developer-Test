@@ -5,7 +5,7 @@
   display: flex;
   width: 30%;
   @include respond(mini-phone) {
-    width: 50%;
+    width: 20%;
   }
 
   &__select {
