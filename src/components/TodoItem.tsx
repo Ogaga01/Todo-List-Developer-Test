@@ -11,6 +11,11 @@ interface Props {
 
 const TodoItem: FC<Props> = ({ props, renderTodo }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    setCopied(true);
+  };
 
   const { id, todo, completed } = props;
 
@@ -22,7 +27,6 @@ const TodoItem: FC<Props> = ({ props, renderTodo }) => {
     let existingTodos: Task[] = JSON.parse(
       localStorage.getItem("tasks") || "[]"
     );
-
 
     const foundTodo = existingTodos.find((todo) => todo.id === id) as Task;
     existingTodos = existingTodos.filter((todo) => todo.id !== id);
@@ -57,9 +61,19 @@ const TodoItem: FC<Props> = ({ props, renderTodo }) => {
         onChange={handleCheckbox}
       />
       <p className={styles["item__todo"]}>{todo}</p>
-      <CopyToClipboard text={todo}>
-        <FaRegCopy className={styles["item__icons"]} />
-      </CopyToClipboard>
+      <div className={styles["item__icon"]}>
+        {copied ? (
+          <p className={styles["item__icons--a"]}>Copied</p>
+        ) : (
+          <p className={styles["item__icons--a"]}>Copy</p>
+        )}
+        <CopyToClipboard text={todo}>
+          <FaRegCopy
+            onClick={handleCopy}
+            className={styles["item__icons--a"]}
+          />
+        </CopyToClipboard>
+      </div>
       <FaRegTrashAlt className={styles["item__icons"]} onClick={deleteTodo} />
     </div>
   );

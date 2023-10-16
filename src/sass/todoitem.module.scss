@@ -18,7 +18,7 @@
 
   &__todo {
     font-size: 1.7rem;
-    width: 80%;
+    width: 75%;
     color: $color-tertiary;
   }
 
@@ -27,5 +27,18 @@
     width: 7%;
     color: $color-tertiary;
     cursor: pointer;
+
+    &--a {
+      width: 100%;
+      font-size: 1.5rem;
+      color: $color-tertiary;
+      cursor: pointer;
+    }
+  }
+
+  &__icon {
+    width: 10%;
+    display: flex;
+    align-items: center;
   }
 }
