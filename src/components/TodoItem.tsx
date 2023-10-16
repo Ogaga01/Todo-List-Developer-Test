@@ -6,9 +6,10 @@ import styles from "./../sass/todoitem.module.scss";
 
 interface Props {
   props: Task;
+  renderTodo: (task: Task[]) => void;
 }
 
-const TodoItem: FC<Props> = ({ props }) => {
+const TodoItem: FC<Props> = ({ props, renderTodo }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const { id, todo, completed } = props;
@@ -44,6 +45,8 @@ const TodoItem: FC<Props> = ({ props }) => {
     );
     existingTodos = existingTodos.filter((todo) => todo.id !== id);
     localStorage.setItem("tasks", JSON.stringify(existingTodos));
+    const newTodo = JSON.parse(localStorage.getItem('tasks')||'[]')
+    renderTodo(newTodo)
   };
 
   return (

@@ -5,9 +5,10 @@ import { setLocalStorage } from "../localStorage";
 
 interface Props {
   handleShow: () => void;
+  renderTodo: (task: Task[]) => void;
 }
 
-const CreateTodo: FC<Props> = ({handleShow}:Props) => {
+const CreateTodo: FC<Props> = ({ handleShow, renderTodo }: Props) => {
   const [todo, setTodo] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const completed = false;
@@ -30,13 +31,15 @@ const CreateTodo: FC<Props> = ({handleShow}:Props) => {
       completed,
     };
     setLocalStorage(task);
-    handleShow()
+    handleShow();
+    const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    renderTodo(existingTasks);
   };
 
   return (
     <div className={styles["todo"]}>
       <h1 className={styles["header"]}>Create Task</h1>
-     
+
       <input
         className={styles["input"]}
         type="string"
@@ -55,7 +58,9 @@ const CreateTodo: FC<Props> = ({handleShow}:Props) => {
         placeholder="Description (optional) "
       />
       <div className={styles["buttons"]}>
-        <button className={styles["buttons__cancel"]} onClick={handleShow}>Cancel</button>
+        <button className={styles["buttons__cancel"]} onClick={handleShow}>
+          Cancel
+        </button>
         <button className={styles["buttons__add"]} onClick={addTask}>
           Save
         </button>

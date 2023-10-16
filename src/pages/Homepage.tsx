@@ -14,17 +14,24 @@ const Homepage = () => {
   const [todos, setTodos] = useState<Task[]>([]);
   const [displayedTodos, setDisplayedTodos] = useState<Task[]>(todos);
   const [show, setShow] = useState<boolean>(false);
+  const [renderedTodo, setRenderedTodo] = useState<Task[]>([])
 
   const handleShow = () => {
     setShow((prev) => !prev);
   };
+
+  const renderTodo = (task: Task[])=>{
+  setRenderedTodo(task)
+  }
 
   useEffect(() => {
     const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
 
     setTodos(existingTasks);
     setDisplayedTodos(existingTasks);
-  }, [todos]);
+    setDisplayedTodos(renderedTodo)
+    
+  }, [renderedTodo]);
 
   useEffect(() => {
     const filteredTodos = todos.filter((todo) =>
@@ -75,12 +82,12 @@ const Homepage = () => {
             <Defaultmessage />
           ) : (
             displayedTodos.map((todo) => {
-              return <TodoItem key={todo.id} props={todo} />;
+              return <TodoItem renderTodo={renderTodo} key={todo.id} props={todo} />;
             })
           )}
         </div>
       </div>
-      {show && <CreateTodo handleShow={handleShow} />}
+      {show && <CreateTodo handleShow={handleShow} renderTodo={renderTodo} />}
     </div>
   );
 };
