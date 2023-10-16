@@ -3,6 +3,10 @@
 
 .search {
   display: flex;
+  width: 60%;
+  @include respond(mini-phone) {
+    width: 50%;
+  }
 
   &__input {
     background-color: $color-tertiary;
@@ -11,9 +15,6 @@
     border-radius: 5%;
     height: 4rem;
     padding: 1rem;
-
-    @include respond(mini-phone) {
-      width: 50%;
-    }
+    width: 100%;
   }
 }

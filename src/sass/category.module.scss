@@ -3,6 +3,10 @@
 
 .category {
   display: flex;
+  width: 30%;
+  @include respond(mini-phone) {
+    width: 50%;
+  }
 
   &__select {
     background-color: $color-tertiary;
@@ -10,5 +14,6 @@
     border: none;
     border-radius: 5%;
     height: 4rem;
+    width: 100%;
   }
 }

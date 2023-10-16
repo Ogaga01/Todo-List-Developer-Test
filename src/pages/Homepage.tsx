@@ -61,19 +61,22 @@ const Homepage = () => {
       <div className={styles["container"]}>
         <div className={styles["container__navbar"]}>
           <h1 className={styles["container__navbar--header"]}>Things To Do</h1>
-          <Searchbar
-            handleSearchChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearchText(e.target.value);
-            }}
-          />
 
-          <FilterCompleted
-            handleCompletedChange={(
-              e: React.ChangeEvent<HTMLSelectElement>
-            ) => {
-              setFilterValue(e.target.value);
-            }}
-          />
+          <div className={styles["category"]}>
+            <Searchbar
+              handleSearchChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setSearchText(e.target.value);
+              }}
+            />
+
+            <FilterCompleted
+              handleCompletedChange={(
+                e: React.ChangeEvent<HTMLSelectElement>
+              ) => {
+                setFilterValue(e.target.value);
+              }}
+            />
+          </div>
           <AddButton onClick={handleShow} />
         </div>
         <div>

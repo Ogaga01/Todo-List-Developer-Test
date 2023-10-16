@@ -10,6 +10,10 @@
   position: relative;
   background-color: #dfdcd2;
 
+  @include respond(mob-nav) {
+    width: 80%;
+  }
+
   @include respond(phone) {
     width: 100%;
   }
@@ -22,6 +26,9 @@
     border-bottom: 0.1rem solid $color-tertiary;
     height: 8rem;
     padding-left: 3rem;
+    @include respond(mini-phone) {
+      padding-left: 0;
+    }
 
     &--header {
       color: $color-white;
@@ -30,6 +37,14 @@
       width: 20%;
       text-align: center;
       text-transform: uppercase;
+
+      
     }
   }
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
