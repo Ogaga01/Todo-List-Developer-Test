@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "./../sass/defaultMessage.module.scss";
+import styles from "./../../sass/defaultMessage.module.scss";
 
 const Defaultmessage: FC = () => {
   return (

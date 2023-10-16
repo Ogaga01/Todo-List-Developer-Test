@@ -1,11 +1,10 @@
-import styles from "./../sass/addButton.module.scss";
+import styles from "./../../sass/addButton.module.scss";
 
 type Prop = {
   onClick: () => void;
 };
 
-const AddButton = ({onClick}:Prop) => {
-  
+const AddButton = ({ onClick }: Prop) => {
   return (
     <div className={styles["button"]}>
       <button className={styles["button__add"]} onClick={onClick}>

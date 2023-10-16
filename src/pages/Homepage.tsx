@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import AddButton from "./../components/AddButton";
-import FilterCompleted from "./../components/FilterCompleted";
-import Searchbar from "./../components/Searchbar";
+import AddButton from "./../components/AddButton/AddButton";
+import FilterCompleted from "./../components/FilterCompleted/FilterCompleted";
+import Searchbar from "./../components//SearchBar/Searchbar";
 import { Task } from "../types";
-import TodoItem from "./../components/TodoItem";
+import TodoItem from "./../components/TodoItem/TodoItem";
 import styles from "./../sass/homepage.module.scss";
-import CreateTodo from "./../components/CreateTodo";
-import Defaultmessage from "../components/Defaultmessage";
+import CreateTodo from "./../components/CreateTodo/CreateTodo";
+import Defaultmessage from "../components/DefaultMessage/Defaultmessage";
 
 const Homepage = () => {
   const [searchText, setSearchText] = useState<string>("");

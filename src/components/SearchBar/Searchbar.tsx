@@ -1,4 +1,4 @@
-import styles from "./../sass/searchBar.module.scss";
+import styles from "./../../sass/searchBar.module.scss";
 
 type Prop = {
   handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

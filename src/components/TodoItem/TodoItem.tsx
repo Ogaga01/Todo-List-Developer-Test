@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import { FaRegCopy, FaRegTrashAlt } from "react-icons/fa";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { Task } from "../types";
-import styles from "./../sass/todoitem.module.scss";
+import { Task } from "../../types";
+import styles from "./../../sass/todoitem.module.scss";
 
 interface Props {
   props: Task;

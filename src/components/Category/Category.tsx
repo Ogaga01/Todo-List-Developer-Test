@@ -1,4 +1,4 @@
-import styles from "./../sass/category.module.scss";
+import styles from "./../../sass/category.module.scss";
 
 type Prop = {
   handleCategoryChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
