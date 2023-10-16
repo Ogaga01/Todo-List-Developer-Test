@@ -5,7 +5,7 @@
   display: flex;
   width: 60%;
   @include respond(mini-phone) {
-    width: 50%;
+    width: 30%;
   }
 
   &__input {
