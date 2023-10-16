@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import AddButton from "./../components/AddButton/AddButton";
 import FilterCompleted from "./../components/FilterCompleted/FilterCompleted";
 import Searchbar from "./../components//SearchBar/Searchbar";
@@ -8,7 +8,7 @@ import styles from "./../sass/homepage.module.scss";
 import CreateTodo from "./../components/CreateTodo/CreateTodo";
 import Defaultmessage from "../components/DefaultMessage/Defaultmessage";
 
-const Homepage = () => {
+const Homepage:FC = () => {
   const [searchText, setSearchText] = useState<string>("");
   const [filterValue, setFilterValue] = useState<string>("");
   const [todos, setTodos] = useState<Task[]>([]);

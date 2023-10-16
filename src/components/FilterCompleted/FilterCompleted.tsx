@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import styles from './../../sass/category.module.scss'
 type Prop = {
   handleCompletedChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const FilterCompleted = ({ handleCompletedChange }: Prop) => {
+const FilterCompleted:FC<Prop> = ({ handleCompletedChange }: Prop) => {
 
   return (
     <div className={styles["category"]}>

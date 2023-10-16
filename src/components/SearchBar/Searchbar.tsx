@@ -1,10 +1,11 @@
+import { FC } from "react";
 import styles from "./../../sass/searchBar.module.scss";
 
 type Prop = {
   handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Searchbar = ({ handleSearchChange }: Prop) => {
+const Searchbar:FC<Prop> = ({ handleSearchChange }: Prop) => {
   return (
     <div className={styles["search"]}>
       <input

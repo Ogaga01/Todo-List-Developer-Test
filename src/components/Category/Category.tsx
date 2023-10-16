@@ -1,10 +1,11 @@
+import { FC } from "react";
 import styles from "./../../sass/category.module.scss";
 
 type Prop = {
   handleCategoryChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const Category = ({ handleCategoryChange }: Prop) => {
+const Category:FC<Prop> = ({ handleCategoryChange }: Prop) => {
   return (
     <div className={styles["category"]}>
       <select
