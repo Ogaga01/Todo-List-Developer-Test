@@ -206,6 +206,7 @@ Example command:
 
 - **Edit A Task**
 - **Add Task Due Date**
+- **Add Completed Congratulation Message**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,8 +235,6 @@ If you like this project please share it and don't forget to leave a star.
 I would like to thank the Hiring Manager for the opportuinity to show my skills with this project. I hope the project meets your expectations.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 
