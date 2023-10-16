@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+.category {
+  display: flex;
+  width: 30%;
+  @include respond(mini-phone) {
+    width: 50%;
+  }
+
+  &__select {
+    background-color: $color-tertiary;
+    color: $color-primary;
+    border: none;
+    border-radius: 5%;
+    height: 4rem;
+    width: 100%;
+  }
+}

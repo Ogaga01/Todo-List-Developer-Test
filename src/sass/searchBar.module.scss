@@ -1,0 +1,20 @@
+@import "variables";
+@import "mixins";
+
+.search {
+  display: flex;
+  width: 60%;
+  @include respond(mini-phone) {
+    width: 50%;
+  }
+
+  &__input {
+    background-color: $color-tertiary;
+    color: $color-primary;
+    border: none;
+    border-radius: 5%;
+    height: 4rem;
+    padding: 1rem;
+    width: 100%;
+  }
+}

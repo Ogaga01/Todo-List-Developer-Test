@@ -1,0 +1,109 @@
+@import "variables";
+@import "mixins";
+
+.todo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  border: 0.1rem solid $color-tertiary;
+  position: absolute;
+  margin: auto;
+  left: 25%;
+  top: 20%;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  --tw-backdrop-blur: blur(4px);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+    var(--tw-backdrop-sepia);
+  background-color: rgb(226 232 240 / 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 30;
+  overflow-y: none;
+
+  @include respond(phone) {
+    width: 100%;
+  }
+}
+
+.header {
+  width: 100%;
+  padding: 2rem 1rem;
+  background: linear-gradient(to right, #28466b, #4e78a4);
+  color: $color-white;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  font-weight: 500;
+  border-bottom: 0.1rem solid $color-tertiary;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    background-color: $color-primary;
+    color: $color-tertiary;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+
+    &--value {
+      background-color: $color-tertiary;
+      color: $color-primary;
+      border: none;
+      padding: 1rem;
+    }
+  }
+}
+
+.input {
+  background-color: $color-tertiary;
+  border: none;
+  padding: 1rem;
+  font: 1rem;
+  color: $color-primary;
+  border-top: 0.1rem solid$color-primary;
+  height: 5rem;
+}
+
+.buttons {
+  background: linear-gradient(to right, #28466b, #4e78a4);
+  height: 6rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem;
+
+  &__cancel {
+    background-color: $color-tertiary;
+    border: none;
+    height: 3.5rem;
+    text-align: center;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 10%;
+  }
+
+  &__add {
+    background-color: green;
+    border: none;
+    height: 3.7rem;
+    text-align: center;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 10%;
+    color: $color-tertiary;
+  }
+}

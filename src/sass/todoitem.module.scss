@@ -1,0 +1,63 @@
+@import "variables";
+@import "mixins";
+
+.item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: $color-white;
+  padding: 1rem 0rem;
+  margin-top: 2rem;
+  box-shadow: 0 1rem 2rem rgba($color-primary, 0.2);
+  height: 7rem;
+
+  &__check {
+    height: auto;
+    width: 5%;
+    &:not(:checked) {
+      background-color: $color-tertiary;
+    }
+  }
+
+  &__todos {
+    font-size: 1.7rem;
+    width: 75%;
+    color: $color-secondary;
+    text-transform: uppercase;
+  }
+
+  &__todo {
+    font-size: 1.7rem;
+    width: 75%;
+    color: $color-secondary;
+
+    &--para1 {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+    }
+
+    &--para2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__icons {
+    font-size: 1.5rem;
+    width: 7%;
+    color: red;
+    cursor: pointer;
+
+    &--a {
+      width: 100%;
+      font-size: 1.5rem;
+      color: green;
+      cursor: pointer;
+    }
+  }
+
+  &__icon {
+    width: 10%;
+    display: flex;
+    align-items: center;
+  }
+}
