@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AddButton from "./../components/AddButton/AddButton";
 import FilterCompleted from "./../components/FilterCompleted/FilterCompleted";
 import Searchbar from "./../components//SearchBar/Searchbar";
-import { Task } from "../types";
+import { Task } from "../helpers/types";
 import TodoItem from "./../components/TodoItem/TodoItem";
 import styles from "./../sass/homepage.module.scss";
 import CreateTodo from "./../components/CreateTodo/CreateTodo";

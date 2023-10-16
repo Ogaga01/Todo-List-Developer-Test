@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
-import { Task } from "../../types";
+import { Task } from "../../helpers/types";
 import styles from "./../../sass/createTodo.module.scss";
-import { setLocalStorage } from "../../localStorage";
+import { setLocalStorage } from "../../helpers/localStorage";
 
 interface Props {
   handleShow: () => void;

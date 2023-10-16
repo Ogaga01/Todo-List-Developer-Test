@@ -7,5 +7,3 @@ export const setLocalStorage = (task: Task) => {
 
   localStorage.setItem("tasks", JSON.stringify(existingTasks));
 };
-
-
