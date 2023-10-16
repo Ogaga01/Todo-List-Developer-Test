@@ -5,6 +5,8 @@
   display: flex;
   flex-direction: column;
   width: 70%;
+  border: 0.1rem solid $color-tertiary;
+  margin: auto;
 
   &__navbar {
     display: flex;
