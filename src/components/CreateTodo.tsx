@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { Task } from "../types";
 import styles from "../sass/createTodo.module.scss";
 import { setLocalStorage } from "../localStorage";
 
-const CreateTodo = () => {
+interface Props {
+  handleShow: () => void;
+}
+
+const CreateTodo: FC<Props> = ({handleShow}:Props) => {
   const [todo, setTodo] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const completed = false;
@@ -21,10 +25,12 @@ const CreateTodo = () => {
   const addTask = () => {
     const task: Task = {
       id: date.toString(),
-      todo: description,
+      todo: todo,
+      description,
       completed,
     };
     setLocalStorage(task);
+    handleShow()
   };
 
   return (
@@ -49,7 +55,7 @@ const CreateTodo = () => {
         placeholder="Description (optional) "
       />
       <div className={styles["buttons"]}>
-        <button className={styles["buttons__cancel"]}>Cancel</button>
+        <button className={styles["buttons__cancel"]} onClick={handleShow}>Cancel</button>
         <button className={styles["buttons__add"]} onClick={addTask}>
           Save
         </button>

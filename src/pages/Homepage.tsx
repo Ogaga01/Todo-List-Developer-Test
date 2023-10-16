@@ -16,18 +16,8 @@ const Homepage = () => {
   const [show, setShow] = useState<boolean>(false);
 
   const handleShow = () => {
-    setShow(true);
+    setShow((prev) => !prev);
   };
-
-  // const handleInitialData = () => {
-
-  // };
-
-  // useEffect(() => {
-  //   const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-  //   console.log(tasks);
-  //   setDisplayedTodos(tasks);
-  // }, []);
 
   useEffect(() => {
     const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
@@ -43,15 +33,6 @@ const Homepage = () => {
 
     setDisplayedTodos(filteredTodos);
   }, [todos, searchText]);
-
-  // useEffect(() => {
-  //   const filteredTodos = todos.filter(
-  //     (todo) => todo.category.toLowerCase() === categoryValue
-  //   );
-
-  //   console.log(5555555, filteredTodos);
-  //   setDisplayedTodos(filteredTodos);
-  // }, [todos, categoryValue]);
 
   useEffect(() => {
     if (filterValue === "all") {
@@ -99,7 +80,7 @@ const Homepage = () => {
           )}
         </div>
       </div>
-      {show && <CreateTodo />}
+      {show && <CreateTodo handleShow={handleShow} />}
     </div>
   );
 };
