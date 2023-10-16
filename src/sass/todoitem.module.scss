@@ -5,8 +5,11 @@
   display: flex;
   width: 100%;
   align-items: center;
-  background-color: $color-primary;
+  background-color: $color-white;
   padding: 1rem 0rem;
+  margin-top: 2rem;
+  box-shadow: 0 1rem 2rem rgba($color-primary, 0.2);
+  height: 7rem;
 
   &__check {
     height: auto;
@@ -16,22 +19,38 @@
     }
   }
 
+  &__todos {
+    font-size: 2.5rem;
+    width: 75%;
+    color: $color-secondary;
+    text-transform: uppercase;
+  }
+
   &__todo {
     font-size: 1.7rem;
     width: 75%;
-    color: $color-tertiary;
+    color: $color-secondary;
+
+    &--para1 {
+      text-transform: uppercase;
+      font-size: 2.5rem;
+    }
+
+    &--para2 {
+      font-size: 1.5rem;
+    }
   }
 
   &__icons {
     font-size: 1.5rem;
     width: 7%;
-    color: $color-tertiary;
+    color: red;
     cursor: pointer;
 
     &--a {
       width: 100%;
       font-size: 1.5rem;
-      color: $color-tertiary;
+      color: green;
       cursor: pointer;
     }
   }

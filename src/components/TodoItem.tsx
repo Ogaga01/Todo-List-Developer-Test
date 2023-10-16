@@ -17,7 +17,7 @@ const TodoItem: FC<Props> = ({ props, renderTodo }) => {
     setCopied(true);
   };
 
-  const { id, todo, completed } = props;
+  const { id, todo, completed, description } = props;
 
   useEffect(() => {
     setIsChecked(completed);
@@ -60,7 +60,14 @@ const TodoItem: FC<Props> = ({ props, renderTodo }) => {
         checked={isChecked}
         onChange={handleCheckbox}
       />
-      <p className={styles["item__todo"]}>{todo}</p>
+      {!description ? (
+        <p className={styles["item__todos"]}>{todo}</p>
+      ) : (
+        <div className={styles["item__todo"]}>
+          <p className={styles["item__todo--para1"]}>{todo}</p>
+          <p className={styles["item__todo--para2"]}>{description}</p>
+        </div>
+      )}
       <div className={styles["item__icon"]}>
         {copied ? (
           <p className={styles["item__icons--a"]}>Copied</p>

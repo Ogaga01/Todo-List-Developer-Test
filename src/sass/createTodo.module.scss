@@ -37,9 +37,11 @@
 .header {
   width: 100%;
   padding: 2rem 1rem;
-  background-color: $color-primary;
-  color: $color-tertiary;
-  font-size: 1.5rem;
+  background: linear-gradient(to right, #28466b, #4e78a4);
+  color: $color-white;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  font-weight: 500;
   border-bottom: 0.1rem solid $color-tertiary;
 }
 
@@ -70,10 +72,11 @@
   font: 1rem;
   color: $color-primary;
   border-top: 0.1rem solid$color-primary;
+  height: 5rem;
 }
 
 .buttons {
-  background-color: $color-primary;
+  background: linear-gradient(to right, #28466b, #4e78a4);
   height: 6rem;
   display: flex;
   justify-content: end;
@@ -93,9 +96,9 @@
   }
 
   &__add {
-    background-color: $color-add;
+    background-color: green;
     border: none;
-    height: 3.5rem;
+    height: 3.7rem;
     text-align: center;
     padding: 1.5rem;
     display: flex;

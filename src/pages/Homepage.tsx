@@ -14,23 +14,22 @@ const Homepage = () => {
   const [todos, setTodos] = useState<Task[]>([]);
   const [displayedTodos, setDisplayedTodos] = useState<Task[]>(todos);
   const [show, setShow] = useState<boolean>(false);
-  const [renderedTodo, setRenderedTodo] = useState<Task[]>([])
+  const [renderedTodo, setRenderedTodo] = useState<Task[]>([]);
 
   const handleShow = () => {
     setShow((prev) => !prev);
   };
 
-  const renderTodo = (task: Task[])=>{
-  setRenderedTodo(task)
-  }
+  const renderTodo = (task: Task[]) => {
+    setRenderedTodo(task);
+  };
 
   useEffect(() => {
     const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
 
     setTodos(existingTasks);
     setDisplayedTodos(existingTasks);
-    setDisplayedTodos(renderedTodo)
-    
+    setDisplayedTodos(renderedTodo);
   }, [renderedTodo]);
 
   useEffect(() => {
@@ -61,7 +60,7 @@ const Homepage = () => {
     <div>
       <div className={styles["container"]}>
         <div className={styles["container__navbar"]}>
-          <h1 className={styles["container__navbar--header"]}>Todo List</h1>
+          <h1 className={styles["container__navbar--header"]}>Things To Do</h1>
           <Searchbar
             handleSearchChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setSearchText(e.target.value);
@@ -82,7 +81,9 @@ const Homepage = () => {
             <Defaultmessage />
           ) : (
             displayedTodos.map((todo) => {
-              return <TodoItem renderTodo={renderTodo} key={todo.id} props={todo} />;
+              return (
+                <TodoItem renderTodo={renderTodo} key={todo.id} props={todo} />
+              );
             })
           )}
         </div>

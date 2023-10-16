@@ -3,16 +3,18 @@
 
 .button {
   display: flex;
+  height: 100%;
+  width: 10%;
 
   &__add {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $color-add;
+    background: linear-gradient(to right bottom, #28466b, #4e78a4);
     color: $color-white;
     border: none;
     padding: 0.7rem 1rem;
-    font-size: 1.5rem;
-    border-radius: 10%;
+    font-size: 3rem;
+    width: 100%;
   }
 }

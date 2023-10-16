@@ -8,6 +8,7 @@
   border: 0.1rem solid $color-tertiary;
   margin: 7rem auto;
   position: relative;
+  background-color: #dfdcd2;
 
   @include respond(phone) {
     width: 100%;
@@ -15,14 +16,20 @@
 
   &__navbar {
     display: flex;
-    background-color: $color-primary;
+    background: linear-gradient(to right, #28466b, #4e78a4);
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 2rem;
     border-bottom: 0.1rem solid $color-tertiary;
+    height: 8rem;
+    padding-left: 3rem;
 
     &--header {
-      color: $color-tertiary;
+      color: $color-white;
+      font-size: 1.8rem;
+      font-weight: 500;
+      width: 20%;
+      text-align: center;
+      text-transform: uppercase;
     }
   }
 }
