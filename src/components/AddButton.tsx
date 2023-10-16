@@ -1,16 +1,16 @@
-import { useState } from "react";
-import CreateTodo from "./CreateTodo";
+import styles from "./../sass/addButton.module.scss";
 
-const AddButton = () => {
-  const [show, setShow] = useState<boolean>(false);
+type Prop = {
+  onClick: () => void;
+};
 
-  const handleShow = () => {
-    setShow(true);
-  };
+const AddButton = ({onClick}:Prop) => {
+  
   return (
-    <div>
-      <button onClick={handleShow}>+</button>
-      {show && <CreateTodo />}
+    <div className={styles["button"]}>
+      <button className={styles["button__add"]} onClick={onClick}>
+        +
+      </button>
     </div>
   );
 };

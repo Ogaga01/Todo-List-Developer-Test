@@ -1,4 +1,4 @@
-
+import styles from './../sass/category.module.scss'
 type Prop = {
   handleCompletedChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
@@ -6,8 +6,8 @@ type Prop = {
 const FilterCompleted = ({ handleCompletedChange }: Prop) => {
 
   return (
-    <div>
-      <select id="category" name="category" onChange={handleCompletedChange}>
+    <div className={styles["category"]}>
+      <select className={styles["category__select"]} id="category" name="category" onChange={handleCompletedChange}>
         <option value="all">All</option>
         <option value="new">New</option>
         <option value="completed">Completed</option>

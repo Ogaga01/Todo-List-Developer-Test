@@ -1,0 +1,14 @@
+@import "variables";
+@import "mixins";
+
+.category {
+  display: flex;
+
+  &__select {
+    background-color: $color-tertiary;
+    color: $color-primary;
+    border: none;
+    border-radius: 10%;
+    height: 2.5rem;
+  }
+}

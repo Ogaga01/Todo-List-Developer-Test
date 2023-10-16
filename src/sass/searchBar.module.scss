@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+.search {
+  display: flex;
+
+  &__input {
+    background-color: $color-tertiary;
+    color: $color-white;
+    border: none;
+    border-radius: 10%;
+    height: 2.5rem;
+    padding: 1rem;
+
+    &::placeholder {
+      color: $color-white;
+    }
+  }
+}

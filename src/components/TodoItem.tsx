@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { FaRegCopy, FaRegTrashAlt } from "react-icons/fa";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Task } from "../types";
+import styles from "./../sass/todoitem.module.scss";
 
 interface Props {
   props: Task;
@@ -46,13 +47,18 @@ const TodoItem: FC<Props> = ({ props }) => {
   };
 
   return (
-    <div>
-      <input type="checkbox" checked={isChecked} onChange={handleCheckbox} />
-      <p>{todo}</p>
+    <div className={styles["item"]}>
+      <input
+        className={styles["item__check"]}
+        type="checkbox"
+        checked={isChecked}
+        onChange={handleCheckbox}
+      />
+      <p className={styles["item__todo"]}>{todo}</p>
       <CopyToClipboard text={todo}>
-        <FaRegCopy />
+        <FaRegCopy className={styles["item__icons"]} />
       </CopyToClipboard>
-      <FaRegTrashAlt onClick={deleteTodo} />
+      <FaRegTrashAlt className={styles["item__icons"]} onClick={deleteTodo} />
     </div>
   );
 };

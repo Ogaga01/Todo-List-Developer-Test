@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins";
+
+.item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: $color-primary;
+  padding: 1rem 0rem;
+
+  &__check {
+    height: auto;
+    width: 5%;
+    &:not(:checked) {
+      background-color: $color-tertiary;
+    }
+  }
+
+  &__todo {
+    font-size: 1.7rem;
+    width: 80%;
+    color: $color-tertiary;
+  }
+
+  &__icons {
+    font-size: 1.5rem;
+    width: 7%;
+    color: $color-tertiary;
+    cursor: pointer;
+  }
+}
