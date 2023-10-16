@@ -32,7 +32,6 @@
 
     @include respond(mini-phone) {
       text-align: center;
-      
     }
   }
 
@@ -44,7 +43,6 @@
 
     @include respond(mini-phone) {
       text-align: center;
-      
     }
 
     &--para1 {
@@ -83,5 +81,9 @@
     width: 10%;
     display: flex;
     align-items: center;
+
+    @include respond(mini-phone) {
+      width: 13%;
+    }
   }
 }
