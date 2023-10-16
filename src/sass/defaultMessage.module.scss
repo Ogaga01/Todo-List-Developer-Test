@@ -1,0 +1,16 @@
+@import "variables";
+@import "mixins";
+
+.message {
+  display: flex;
+
+  &__para {
+    background-color: $color-primary;
+    color: $color-tertiary;
+    font-size: 1.5rem;
+  }
+
+  &__button {
+    background-color: $color-add;
+  }
+}

@@ -7,6 +7,7 @@ import { Task } from "../types";
 import TodoItem from "./../components/TodoItem";
 import styles from "./../sass/homepage.module.scss";
 import CreateTodo from "./../components/CreateTodo";
+import Defaultmessage from "../components/Defaultmessage";
 
 const Homepage = () => {
   const [searchText, setSearchText] = useState<string>("");
@@ -20,12 +21,15 @@ const Homepage = () => {
     setShow(true);
   };
 
-  // const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+  // const handleInitialData = () => {
+    
+  // };
 
-  // useEffect(() => {
-  //   const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-  //   setDisplayedTodos(tasks);
-  // }, []);
+  useEffect(() => {
+    const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    console.log(tasks);
+    setDisplayedTodos(tasks);
+  }, []);
 
   useEffect(() => {
     const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
@@ -69,34 +73,39 @@ const Homepage = () => {
 
   return (
     <div>
-
-<div className={styles["container"]}>
-      <div className={styles["container__navbar"]}>
-        <h1 className={styles["container__navbar--header"]}>Todo List</h1>
-        <Searchbar
-          handleSearchChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setSearchText(e.target.value);
-          }}
-        />
-        <Category
-          handleCategoryChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-            setCategoryValue(e.target.value);
-          }}
-        />
-        <FilterCompleted
-          handleCompletedChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-            setFilterValue(e.target.value);
-          }}
-        />
-        <AddButton onClick={handleShow} />
+      <div className={styles["container"]}>
+        <div className={styles["container__navbar"]}>
+          <h1 className={styles["container__navbar--header"]}>Todo List</h1>
+          <Searchbar
+            handleSearchChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <Category
+            handleCategoryChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              setCategoryValue(e.target.value);
+            }}
+          />
+          <FilterCompleted
+            handleCompletedChange={(
+              e: React.ChangeEvent<HTMLSelectElement>
+            ) => {
+              setFilterValue(e.target.value);
+            }}
+          />
+          <AddButton onClick={handleShow} />
+        </div>
+        <ul>
+          {!displayedTodos ? (
+            <Defaultmessage />
+          ) : (
+            displayedTodos.map((todo: Task) => {
+              return <TodoItem props={todo} key={todo.id} />;
+            })
+          )}
+        </ul>
       </div>
-      <ul>
-        {displayedTodos.map((todo: Task) => {
-          return <TodoItem props={todo} key={todo.id} />;
-        })}
-      </ul>
-    </div>
-    {show && <CreateTodo/>}
+      {show && <CreateTodo />}
     </div>
   );
 };
