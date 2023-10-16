@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import AddButton from "./../components/AddButton";
-import Category from "./../components/Category";
 import FilterCompleted from "./../components/FilterCompleted";
 import Searchbar from "./../components/Searchbar";
 import { Task } from "../types";
@@ -11,7 +10,6 @@ import Defaultmessage from "../components/Defaultmessage";
 
 const Homepage = () => {
   const [searchText, setSearchText] = useState<string>("");
-  const [categoryValue, setCategoryValue] = useState<string>("");
   const [filterValue, setFilterValue] = useState<string>("");
   const [todos, setTodos] = useState<Task[]>([]);
   const [displayedTodos, setDisplayedTodos] = useState<Task[]>(todos);
@@ -22,21 +20,21 @@ const Homepage = () => {
   };
 
   // const handleInitialData = () => {
-    
+
   // };
 
-  useEffect(() => {
-    const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-    console.log(tasks);
-    setDisplayedTodos(tasks);
-  }, []);
+  // useEffect(() => {
+  //   const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+  //   console.log(tasks);
+  //   setDisplayedTodos(tasks);
+  // }, []);
 
   useEffect(() => {
     const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
 
     setTodos(existingTasks);
     setDisplayedTodos(existingTasks);
-  }, []);
+  }, [todos]);
 
   useEffect(() => {
     const filteredTodos = todos.filter((todo) =>
@@ -46,14 +44,14 @@ const Homepage = () => {
     setDisplayedTodos(filteredTodos);
   }, [todos, searchText]);
 
-  useEffect(() => {
-    const filteredTodos = todos.filter(
-      (todo) => todo.category.toLowerCase() === categoryValue
-    );
+  // useEffect(() => {
+  //   const filteredTodos = todos.filter(
+  //     (todo) => todo.category.toLowerCase() === categoryValue
+  //   );
 
-    console.log(5555555, filteredTodos);
-    setDisplayedTodos(filteredTodos);
-  }, [todos, categoryValue]);
+  //   console.log(5555555, filteredTodos);
+  //   setDisplayedTodos(filteredTodos);
+  // }, [todos, categoryValue]);
 
   useEffect(() => {
     if (filterValue === "all") {
@@ -81,11 +79,7 @@ const Homepage = () => {
               setSearchText(e.target.value);
             }}
           />
-          <Category
-            handleCategoryChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-              setCategoryValue(e.target.value);
-            }}
-          />
+
           <FilterCompleted
             handleCompletedChange={(
               e: React.ChangeEvent<HTMLSelectElement>
@@ -95,15 +89,15 @@ const Homepage = () => {
           />
           <AddButton onClick={handleShow} />
         </div>
-        <ul>
-          {!displayedTodos ? (
+        <div>
+          {displayedTodos.length === 0 ? (
             <Defaultmessage />
           ) : (
-            displayedTodos.map((todo: Task) => {
-              return <TodoItem props={todo} key={todo.id} />;
+            displayedTodos.map((todo) => {
+              return <TodoItem props={todo} />;
             })
           )}
-        </ul>
+        </div>
       </div>
       {show && <CreateTodo />}
     </div>

@@ -13,9 +13,6 @@ const Category = ({ handleCategoryChange }: Prop) => {
         name="category"
         onChange={handleCategoryChange}
       >
-        <option value="" selected disabled>
-          Filter by category
-        </option>
         <option value="chores">Chores</option>
         <option value="work">Work</option>
         <option value="gym">Gym</option>
