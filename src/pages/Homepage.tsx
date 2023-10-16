@@ -94,7 +94,7 @@ const Homepage = () => {
             <Defaultmessage />
           ) : (
             displayedTodos.map((todo) => {
-              return <TodoItem props={todo} />;
+              return <TodoItem key={todo.id} props={todo} />;
             })
           )}
         </div>
