@@ -24,6 +24,7 @@ const CreateTodo: FC<Props> = ({ handleShow, renderTodo }: Props) => {
   const date = Date.now();
 
   const addTask = () => {
+    if (!todo) return;
     const task: Task = {
       id: date.toString(),
       todo: todo,
@@ -37,33 +38,35 @@ const CreateTodo: FC<Props> = ({ handleShow, renderTodo }: Props) => {
   };
 
   return (
-    <div className={styles["todo"]}>
-      <h1 className={styles["header"]}>Create Task</h1>
+    <div className={styles.backdrop}>
+      <div className={styles["todo"]}>
+        <h1 className={styles["header"]}>Create Task</h1>
 
-      <input
-        className={styles["input"]}
-        type="string"
-        name="todo"
-        required
-        value={todo}
-        onChange={handleTodo}
-        placeholder="What task should be done"
-      />
-      <input
-        className={styles["input"]}
-        type="text"
-        name="description"
-        value={description}
-        onChange={handleDescription}
-        placeholder="Description (optional) "
-      />
-      <div className={styles["buttons"]}>
-        <button className={styles["buttons__cancel"]} onClick={handleShow}>
-          Cancel
-        </button>
-        <button className={styles["buttons__add"]} onClick={addTask}>
-          Save
-        </button>
+        <input
+          className={styles["input"]}
+          type="string"
+          name="todo"
+          required
+          value={todo}
+          onChange={handleTodo}
+          placeholder="What task should be done"
+        />
+        <input
+          className={styles["input"]}
+          type="text"
+          name="description"
+          value={description}
+          onChange={handleDescription}
+          placeholder="Description (optional) "
+        />
+        <div className={styles["buttons"]}>
+          <button className={styles["buttons__cancel"]} onClick={handleShow}>
+            Cancel
+          </button>
+          <button className={styles["buttons__add"]} onClick={addTask}>
+            Save
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -23,10 +23,8 @@ const TodoItem: FC<Props> = ({ props, renderTodo }) => {
       localStorage.getItem("tasks") || "[]"
     );
 
-    console.log(id, existingTodos);
 
     const foundTodo = existingTodos.find((todo) => todo.id === id) as Task;
-    console.log(foundTodo);
     existingTodos = existingTodos.filter((todo) => todo.id !== id);
 
     existingTodos.push({
@@ -36,7 +34,8 @@ const TodoItem: FC<Props> = ({ props, renderTodo }) => {
 
     localStorage.setItem("tasks", JSON.stringify(existingTodos));
     setIsChecked((prev) => !prev);
-    console.log("checked");
+    const newTodo = JSON.parse(localStorage.getItem("tasks") || "[]");
+    renderTodo(newTodo);
   };
 
   const deleteTodo = () => {
@@ -45,8 +44,8 @@ const TodoItem: FC<Props> = ({ props, renderTodo }) => {
     );
     existingTodos = existingTodos.filter((todo) => todo.id !== id);
     localStorage.setItem("tasks", JSON.stringify(existingTodos));
-    const newTodo = JSON.parse(localStorage.getItem('tasks')||'[]')
-    renderTodo(newTodo)
+    const newTodo = JSON.parse(localStorage.getItem("tasks") || "[]");
+    renderTodo(newTodo);
   };
 
   return (

@@ -5,8 +5,33 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  border: none;
-  border-radius: 10%;
+  border: 0.1rem solid $color-tertiary;
+  position: absolute;
+  margin: auto;
+  left: 25%;
+  top: 20%;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  --tw-backdrop-blur: blur(4px);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+    var(--tw-backdrop-sepia);
+  background-color: rgb(226 232 240 / 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 30;
+  overflow-y: none;
+
+  @include respond(phone) {
+    width: 100%;
+  }
 }
 
 .header {
