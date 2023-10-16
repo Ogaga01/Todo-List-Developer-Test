@@ -70,12 +70,12 @@ const TodoItem: FC<Props> = ({ props, renderTodo }) => {
       )}
       <div className={styles["item__icon"]}>
         {copied && <p className={styles["item__icons--a"]}>Copied</p>}
-        <CopyToClipboard text={todo}>
+        {!copied && <CopyToClipboard text={todo}>
           <FaRegCopy
             onClick={handleCopy}
             className={styles["item__icons--a"]}
           />
-        </CopyToClipboard>
+        </CopyToClipboard>}
       </div>
       <FaRegTrashAlt className={styles["item__icons"]} onClick={deleteTodo} />
     </div>
