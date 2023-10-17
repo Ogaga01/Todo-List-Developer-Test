@@ -28,7 +28,7 @@
     width: 75%;
     color: $color-secondary;
     text-transform: uppercase;
-    padding-left: 4rem;
+    padding-left: 8rem;
 
     @include respond(mini-phone) {
       text-align: center;
